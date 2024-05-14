@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Bot } from "lucide-react";
+import BottomBar from "@/components/shared/bottom-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex justify-center`}>
+      <body className={`${inter.className} flex justify-center relative`}>
         {children}
-        <script type="module" src="./components/graph.tsx"></script>
+        <BottomBar />
       </body>
     </html>
   );
