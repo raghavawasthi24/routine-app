@@ -3,7 +3,8 @@ import BottomBar from "@/components/shared/bottom-bar";
 import Graph from "@/components/shared/graph";
 import ProgressBar from "@/components/shared/progress-bar";
 import SwipeTrack from "@/components/shared/swipe-track";
-import Tracks, { trackList } from "@/components/shared/tracks";
+import Tracks from "@/components/shared/tracks";
+import { trackList } from "@/constants";
 import { set } from "date-fns";
 import { useState } from "react";
 

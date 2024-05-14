@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 
 export default function ProgressBar({ trackCompleted }: any) {
-  // const [percentage, setPercentage] = React.useState(50);
   var percentage = trackCompleted * 20;
   
   return (
