@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "../ui/checkbox";
 import Image from "next/image";
 
-export default function TrackCard({ track, setTrackCompleted }: any) {
+export default function TrackCard({ track, setTrackCompleted,setAllTracksTracked }: any) {
   const check = (e: any) => {
     console.log("cahbjh");
     if (e) {
@@ -15,6 +15,7 @@ export default function TrackCard({ track, setTrackCompleted }: any) {
         return prev - 1;
       });
       track.checked = false;
+      setAllTracksTracked(false);
     }
   };
   return (

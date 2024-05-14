@@ -34,7 +34,7 @@ export const trackList = [
     color: "#5A92CB",
   },
 ];
-export default function Tracks({ tracks,setTrackCompleted }: any) {
+export default function Tracks({ tracks,setTrackCompleted,setAllTracksTracked }: any) {
   return (
     <section>
       <div className="flex justify-between items-center p-2">
@@ -48,6 +48,7 @@ export default function Tracks({ tracks,setTrackCompleted }: any) {
               key={index}
               track={track}
               setTrackCompleted={setTrackCompleted}
+              setAllTracksTracked={setAllTracksTracked}
             />
           );
         })}

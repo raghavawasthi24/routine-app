@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex justify-center relative`}>
+      <body
+        className={`${inter.className} flex justify-center relative bg-black`}
+      >
         {children}
         <BottomBar />
       </body>

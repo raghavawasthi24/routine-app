@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-4 overflow-auto bg-[#212121] w-[22rem] p-4 text-white mb-[77px]">
       <ProgressBar trackCompleted={trackCompleted} />
-      <Tracks setTrackCompleted={setTrackCompleted} tracks={tracks}/>
+      <Tracks setTrackCompleted={setTrackCompleted} tracks={tracks} setAllTracksTracked={setAllTracksTracked}/>
       <SwipeTrack
         onSwipe={allTracksTracked ? handleUntrackAllTracks : handleTrackAllTracks}
         allTracksTracked={allTracksTracked}
