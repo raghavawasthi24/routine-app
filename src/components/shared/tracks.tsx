@@ -34,11 +34,11 @@ export const trackList = [
     color: "#5A92CB",
   },
 ];
-export default function Tracks({ setTrackCompleted }:any) {
+export default function Tracks({ setTrackCompleted }: any) {
   return (
     <section>
       <div className="flex justify-between items-center p-2">
-        <p>Today's Goal</p>
+        <p>Today&apos;s Goal</p>
         <Image src="/assets/heart.gif" width={30} height={30} alt="progress" />
       </div>
       <div className="flex flex-col gap-2">
