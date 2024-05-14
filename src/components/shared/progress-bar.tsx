@@ -21,7 +21,7 @@ export default function ProgressBar({ trackCompleted }: any) {
         <div className="progressbarfull mt-2">
           <div
             className="progressbar"
-            style={{ width: `${trackCompleted}%` }}
+            style={{ width: `${trackCompleted*20}%` }}
           ></div>
         </div>
         <div className="percentage mt-1 ">{trackCompleted*20}%</div>

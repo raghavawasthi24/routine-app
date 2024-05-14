@@ -50,7 +50,7 @@ export default function Home() {
 
   const [trackCompleted, setTrackCompleted] = useState(0);
   return (
-    <div className="flex flex-col gap-4 overflow-auto bg-[#212121] w-[22rem] p-4 text-white">
+    <div className="flex flex-col gap-4 overflow-auto bg-[#212121] w-[22rem] p-4 text-white mb-[77px]">
       <ProgressBar trackCompleted={trackCompleted} />
       <Tracks setTrackCompleted={setTrackCompleted} />
       <SwipeTrack

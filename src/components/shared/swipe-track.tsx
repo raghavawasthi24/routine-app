@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from "react";
 
-function SwipeTrack({ onSwipe, allGoalsTracked }:any) {
+function SwipeTrack({ onSwipe, allGoalsTracked }: any) {
   const [startX, setStartX] = useState(0);
   const [offset, setOffset] = useState(0);
   const [swiped, setSwiped] = useState(false);
 
-  const handleTouchStart = (event:any) => {
+  const handleTouchStart = (event: any) => {
     setStartX(event.touches[0].clientX);
   };
 
-  const handleTouchMove = (event:any) => {
+  const handleTouchMove = (event: any) => {
     if (!startX || allGoalsTracked) return;
     const currentX = event.touches[0].clientX;
     const deltaX = currentX - startX;
@@ -32,7 +32,7 @@ function SwipeTrack({ onSwipe, allGoalsTracked }:any) {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       style={{ touchAction: "none", cursor: "grab", overflow: "hidden" }}
-      className={`min-w-[312px] w-full h-[50px] flex items-center justify-between px-1 rounded-[38.03px]
+      className={`w-full h-[50px] flex items-center justify-between px-1 rounded-[38.03px]
                 ${allGoalsTracked ? "bg-green-600" : "bg-[#d15439]"}
             `}
     >
