@@ -1,17 +1,18 @@
 "use client";
 import React, { useState } from "react";
 
-function SwipeTrack({ onSwipe, allGoalsTracked }: any) {
+function SwipeTrack({ onSwipe, allTracksTracked }: any) {
   const [startX, setStartX] = useState(0);
   const [offset, setOffset] = useState(0);
   const [swiped, setSwiped] = useState(false);
 
   const handleTouchStart = (event: any) => {
+    console.log("touch start", event.touches[0].clientX);
     setStartX(event.touches[0].clientX);
   };
 
   const handleTouchMove = (event: any) => {
-    if (!startX || allGoalsTracked) return;
+    if (!startX || allTracksTracked) return;
     const currentX = event.touches[0].clientX;
     const deltaX = currentX - startX;
     setOffset(deltaX);
@@ -19,7 +20,7 @@ function SwipeTrack({ onSwipe, allGoalsTracked }: any) {
 
   const handleTouchEnd = () => {
     setStartX(0);
-    if (offset !== 0 && !allGoalsTracked) {
+    if (offset !== 0 && !allTracksTracked) {
       setSwiped(true);
       onSwipe();
     }
@@ -33,11 +34,11 @@ function SwipeTrack({ onSwipe, allGoalsTracked }: any) {
       onTouchEnd={handleTouchEnd}
       style={{ touchAction: "none", cursor: "grab", overflow: "hidden" }}
       className={`w-full h-[50px] flex items-center justify-between px-1 rounded-[38.03px]
-                ${allGoalsTracked ? "bg-green-600" : "bg-[#d15439]"}
+                ${allTracksTracked ? "bg-green-600" : "bg-[#d15439]"}
             `}
     >
       {/** left */}
-      {!allGoalsTracked ? (
+      {!allTracksTracked ? (
         <svg
           style={{ transform: `translateX(${offset}px)` }}
           width="41"
@@ -91,7 +92,7 @@ function SwipeTrack({ onSwipe, allGoalsTracked }: any) {
       {/** text */}
       <div className="w-[149px] h-[10px] flex items-center justify-center">
         <h2 className="font-semibold text-[14px] leading-[17px] text-center text-[#ffffff]">
-          {allGoalsTracked ? "All tracks completed" : "Swipe to track all"}
+          {allTracksTracked ? "All tracks completed" : "Swipe to track all"}
         </h2>
       </div>
 

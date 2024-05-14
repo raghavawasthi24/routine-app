@@ -4,6 +4,7 @@ import Graph from "@/components/shared/graph";
 import ProgressBar from "@/components/shared/progress-bar";
 import SwipeTrack from "@/components/shared/swipe-track";
 import Tracks, { trackList } from "@/components/shared/tracks";
+import { set } from "date-fns";
 import { useState } from "react";
 
 export default function Home() {
@@ -25,37 +26,39 @@ export default function Home() {
       count: 5,
     },
   ];
-  const [goals, setGoals] = useState(
-    trackList.map((goal) => ({ ...goal, isChecked: false }))
+  const [tracks, setTracks] = useState(
+    trackList.map((track) => ({ ...track, isChecked: false }))
   );
-  const [allGoalsTracked, setAllGoalsTracked] = useState(false);
-  const handleTrackAllGoals = () => {
-    const allGoalsTracked = goals.map((goal) => ({
+  const [allTracksTracked, setAllTracksTracked] = useState(false);
+  const handleTrackAllTracks = () => {
+    const allTracksTracked = tracks.map((goal) => ({
       ...goal,
-      isChecked: true,
+      checked: true,
     }));
-    setGoals(allGoalsTracked);
-    setAllGoalsTracked(true);
+    setTracks(allTracksTracked);
+    setAllTracksTracked(true);
+    setTrackCompleted(5);
   };
 
-  // Function to handle untracking all goals
-  const handleUntrackAllGoals = () => {
-    const allGoalsUntracked = goals.map((goal) => ({
+  // Function to handle untracking all Tracks
+  const handleUntrackAllTracks = () => {
+    const allTracksUntracked = tracks.map((goal) => ({
       ...goal,
-      isChecked: false,
+      checked: false,
     }));
-    setGoals(allGoalsUntracked);
-    setAllGoalsTracked(false);
+    setTracks(allTracksUntracked);
+    setAllTracksTracked(false);
+    setTrackCompleted(0);
   };
 
   const [trackCompleted, setTrackCompleted] = useState(0);
   return (
     <div className="flex flex-col gap-4 overflow-auto bg-[#212121] w-[22rem] p-4 text-white mb-[77px]">
       <ProgressBar trackCompleted={trackCompleted} />
-      <Tracks setTrackCompleted={setTrackCompleted} />
+      <Tracks setTrackCompleted={setTrackCompleted} tracks={tracks}/>
       <SwipeTrack
-        onSwipe={allGoalsTracked ? handleUntrackAllGoals : handleTrackAllGoals}
-        allGoalsTracked={allGoalsTracked}
+        onSwipe={allTracksTracked ? handleUntrackAllTracks : handleTrackAllTracks}
+        allTracksTracked={allTracksTracked}
       />
       <Graph />
     </div>

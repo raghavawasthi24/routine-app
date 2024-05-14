@@ -34,7 +34,7 @@ export const trackList = [
     color: "#5A92CB",
   },
 ];
-export default function Tracks({ setTrackCompleted }: any) {
+export default function Tracks({ tracks,setTrackCompleted }: any) {
   return (
     <section>
       <div className="flex justify-between items-center p-2">
@@ -42,7 +42,7 @@ export default function Tracks({ setTrackCompleted }: any) {
         <Image src="/assets/heart.gif" width={30} height={30} alt="progress" />
       </div>
       <div className="flex flex-col gap-2">
-        {trackList.map((track, index) => {
+        {tracks.map((track:any, index:any) => {
           return (
             <TrackCard
               key={index}

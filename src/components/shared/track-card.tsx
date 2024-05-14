@@ -5,15 +5,16 @@ import Image from "next/image";
 export default function TrackCard({ track, setTrackCompleted }: any) {
   const check = (e: any) => {
     console.log("cahbjh");
-    if(e){
+    if (e) {
       setTrackCompleted((prev: any) => {
         return prev + 1;
       });
-    }
-    else{
+      track.checked = true;
+    } else {
       setTrackCompleted((prev: any) => {
         return prev - 1;
       });
+      track.checked = false;
     }
   };
   return (
@@ -24,6 +25,7 @@ export default function TrackCard({ track, setTrackCompleted }: any) {
       </div>
       <Checkbox
         className={`w-8 h-8 rounded-lg text-white`}
+        checked={track.checked}
         style={{ backgroundColor: track.color }}
         onCheckedChange={(e) => check(e)}
       />
