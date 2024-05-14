@@ -1,17 +1,18 @@
 import React from "react";
 import { Checkbox } from "../ui/checkbox";
 import Image from "next/image";
+import { CheckedState } from "@radix-ui/react-checkbox";
 
 export default function TrackCard({ track, setTrackCompleted,setAllTracksTracked }: any) {
-  const check = (e: any) => {
+  const check = (e: CheckedState) => {
     console.log("cahbjh");
     if (e) {
-      setTrackCompleted((prev: any) => {
+      setTrackCompleted((prev: number) => {
         return prev + 1;
       });
       track.checked = true;
     } else {
-      setTrackCompleted((prev: any) => {
+      setTrackCompleted((prev: number) => {
         return prev - 1;
       });
       track.checked = false;

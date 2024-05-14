@@ -1,7 +1,12 @@
 "use client";
 import React, { useState } from "react";
 
-function SwipeTrack({ onSwipe, allTracksTracked }: any) {
+type SwipeTrackProps = {
+  onSwipe: () => void;
+  allTracksTracked: boolean;
+};
+
+function SwipeTrack({ onSwipe, allTracksTracked }: SwipeTrackProps) {
   const [startX, setStartX] = useState(0);
   const [offset, setOffset] = useState(0);
   const [swiped, setSwiped] = useState(false);

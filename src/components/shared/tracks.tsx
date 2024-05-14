@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import TrackCard from "./track-card";
 import Image from "next/image";
 
+type props = {
+  tracks: any;
+  setTrackCompleted: Dispatch<SetStateAction<number>>;
+  setAllTracksTracked: Dispatch<SetStateAction<boolean>>;
+};
 
-export default function Tracks({ tracks,setTrackCompleted,setAllTracksTracked }: any) {
+export default function Tracks({ tracks,setTrackCompleted,setAllTracksTracked }: props) {
   return (
     <section>
       <div className="flex justify-between items-center p-2">

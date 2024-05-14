@@ -2,7 +2,11 @@
 import Image from "next/image";
 import React from "react";
 
-export default function ProgressBar({ trackCompleted }: any) {
+type props= {
+  trackCompleted: number;
+}
+
+export default function ProgressBar({ trackCompleted }:props) {
   var percentage = trackCompleted * 20;
   
   return (

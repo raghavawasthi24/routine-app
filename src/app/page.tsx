@@ -9,24 +9,7 @@ import { set } from "date-fns";
 import { useState } from "react";
 
 export default function Home() {
-  const data = [
-    {
-      day: "3/11",
-      count: 5,
-    },
-    {
-      day: "3/11",
-      count: 5,
-    },
-    {
-      day: "3/11",
-      count: 5,
-    },
-    {
-      day: "3/11",
-      count: 5,
-    },
-  ];
+
   const [tracks, setTracks] = useState(
     trackList.map((track) => ({ ...track, isChecked: false }))
   );
@@ -52,7 +35,7 @@ export default function Home() {
     setTrackCompleted(0);
   };
 
-  const [trackCompleted, setTrackCompleted] = useState(0);
+  const [trackCompleted, setTrackCompleted] = useState<number>(0);
   return (
     <div className="flex flex-col gap-4 overflow-auto bg-[#212121] w-[22rem] p-4 text-white mb-[77px]">
       <ProgressBar trackCompleted={trackCompleted} />
